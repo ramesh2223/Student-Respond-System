@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudentHub | Login</title><link rel="stylesheet" href="style.css">
+</head><body class="auth-bg">
+<div class="auth-layout">
+  <section class="auth-visual">
+    <div class="logo"><span>SR</span><div><b>StudentHub</b><small>Student Record System</small></div></div>
+    <div class="visual-copy">
+      <p class="eyebrow">SMART • SIMPLE • ORGANIZED</p>
+      <h1>Manage student records with confidence.</h1>
+      <p>Keep roll numbers, courses, marks and results organized in one simple dashboard.</p>
+      <div class="feature-list">
+        <div><i>✓</i><span>Complete student CRUD management</span></div>
+        <div><i>✓</i><span>Course filtering and quick search</span></div>
+        <div><i>✓</i><span>Automatic result calculation</span></div>
+        <div><i>✓</i><span>Pagination for larger records</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="auth-panel">
+    <div class="login-card">
+      <div class="mobile-logo logo"><span>SR</span><div><b>StudentHub</b><small>Student Record System</small></div></div>
+      <p class="eyebrow">WELCOME BACK</p><h2>Sign in</h2>
+      <p class="muted">Enter your credentials to access the dashboard.</p>
+      <div id="loginError" class="alert">Invalid username or password.</div>
+      <form id="loginForm">
+        <label>Username<input id="username" required autocomplete="username" placeholder="Enter username"></label>
+        <label>Password<input id="password" type="password" required autocomplete="current-password" placeholder="Enter password"></label>
+        <button class="btn primary full" type="submit">Sign In <span>→</span></button>
+      </form>
+      <div class="demo-box"><b>Demo credentials</b><br>Username: <strong>admin</strong> &nbsp; Password: <strong>admin123</strong></div>
+      <p class="tiny">Demo authentication uses browser session storage.</p>
+    </div>
+  </section>
+</div>
+<script>
+if(sessionStorage.getItem("studentHubLoggedIn")==="true") location.replace("index.html");
+loginForm.onsubmit=e=>{
+ e.preventDefault();
+ if(username.value.trim()==="admin" && password.value==="admin123"){
+   sessionStorage.setItem("studentHubLoggedIn","true");
+   location.href="index.html";
+ } else loginError.classList.add("show");
+};
+</script>
+</body></html>
